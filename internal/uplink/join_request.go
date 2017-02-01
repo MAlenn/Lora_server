@@ -112,7 +112,7 @@ func handleCollectedJoinRequestPackets(ctx common.Context, rxPacket models.RXPac
 		InstallationMargin: joinResp.InstallationMargin,
 	}
 
-	if err = session.CreateNodeSession(ctx.RedisPool, ns); err != nil {
+	if err = session.SaveNodeSession(ctx.RedisPool, ns); err != nil {
 		return fmt.Errorf("create node-session error: %s", err)
 	}
 
